@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if object.pk %}Update{% else %}Create{% endif %} State</title>
+</head>
+<body>
+    <h1>{% if object.pk %}Update{% else %}Create{% endif %} State</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if object.pk %}Update{% else %}Create{% endif %}</button>
+    </form>
+</body>
+</html>
